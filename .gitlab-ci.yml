@@ -9,6 +9,7 @@ pages:
     - npm i
     - npm run build
     - npm run export
+    - mv out public
   artifacts:
     paths:
-      - out/
+      - public
