@@ -11,4 +11,4 @@ pages:
     - npm run export
   artifacts:
     paths:
-      - out
+      - out/
