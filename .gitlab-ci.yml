@@ -1,0 +1,13 @@
+image: node:10.15.3
+
+cache:
+  paths:
+    - node_modules/
+
+pages:
+  script:
+    - npm i
+    - npm run export
+  artifacts:
+    paths:
+      - out/public
