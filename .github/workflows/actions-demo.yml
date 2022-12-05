@@ -18,9 +18,7 @@ jobs:
             - run: npm run export
             - run: cd out/
             - run: tar -cf artifact.tar .
-            - name: Upload artifact
-              uses: actions/upload-artifact@main
+            - uses: actions/upload-artifact@v3
               with:
                 name: github-pages
                 path: out/artifact.tar
-                retention-days: ${{ inputs.retention-days }}
