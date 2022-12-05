@@ -16,4 +16,11 @@ jobs:
             - run: npm i
             - run: npm run build
             - run: npm run export
-            - run: mv out public
+            - run: cd out/
+            - run: tar -cf artifact.tar .
+            - name: Upload artifact
+              uses: actions/upload-artifact@main
+              with:
+                name: github-pages
+                path: out/artifact.tar
+                retention-days: ${{ inputs.retention-days }}
