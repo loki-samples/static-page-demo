@@ -16,9 +16,8 @@ jobs:
             - run: npm i
             - run: npm run build
             - run: npm run export
-            - run: cd out/
-            - run: tar -cf artifact.tar .
+            - run: tar -cf artifact.tar out/*            
             - uses: actions/upload-artifact@v3
               with:
                 name: github-pages
-                path: out/artifact.tar
+                path: artifact.tar
