@@ -4,7 +4,6 @@ on: [push]
 jobs: 
     build:
         runs-on: ubuntu-latest
-        
         steps:
             - uses: actions/checkout@v3
             - uses: actions/setup-node@v3
@@ -22,6 +21,10 @@ jobs:
                 path: ./out
     deploy:
         needs: build
+        permissions:
+          contents: read
+          pages: write
+          id-token: write
         environment:
           name: github-pages
           url: ${{ steps.deployment.outputs.page_url }}
