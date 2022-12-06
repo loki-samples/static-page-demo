@@ -15,9 +15,10 @@ jobs:
             - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
             - run: npm i
             - run: npm run build
-            - run: npm run export
-            - run: tar -cf artifact.tar out/*            
-            - uses: actions/upload-artifact@v3
+            - run: npm run export        
+            - name: upload pages artifacts
+              uses: actions/upload-pages-artifact@v1
               with:
-                name: github-pages
-                path: artifact.tar
+                path: ./out
+            - name: Deploy to GitHub Pages
+              uses: actions/deploy-pages@v1  
